@@ -1,15 +1,15 @@
-const mongoose = require("mongoose");
-const uniqueValidator = require("mongoose-unique-validator");
+const mongoose = require("mongoose")
+const uniqueValidator = require("mongoose-unique-validator")
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-  username: { type: String, required: true },
+  username: { type: String },
   firstname: { type: String },
   lastname: { type: String },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  age: { type: String, required: true },
+  age: { type: String },
   gender: { type: String, default: "female" },
   phonenumber: { type: String },
   guardianDetails: [
@@ -38,8 +38,8 @@ const userSchema = new Schema({
   //   enum: ["user", "admin"],
   // },
   // songs: [{ type: Schema.Types.ObjectId, ref: "Artist" }],
-});
+})
 
-userSchema.plugin(uniqueValidator);
+userSchema.plugin(uniqueValidator)
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema)
